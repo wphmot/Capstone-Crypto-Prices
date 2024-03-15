@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-cd8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>Crypto Prices</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Please select a Cryptocurrency:</h1>
+
+    <form action="/" id="form" class="form" method="POST">
+      <select name="type" class="form-select">
+        <option value="BTC-USD" data-display="Select">Bitcoin: BTC-USD</option>
+        <option value="ETH-USD">Ether: ETH-USD</option>
+        <option value="SOL-USD">Solana: SOL-USD</option>        
+        <option value="DOGE-USD">Dogecoin: DOGE-USD</option>
+        <option value="LTC-USD">Litecoin: LTC-USD</option>
+        <option value="XRP-USD">Ripple: XRP-USD</option>
+      </select>
+      <button type="submit" class="form-submit">Go</button>
+    </form>
+    <section id="info" class="info">
+
+      <% if (locals.cryptoData) { %>
+        <h2><%= cryptoData.symbol %>: </h2>
+        <h3>price_24h:  $<%= cryptoData.price_24h %></h3>
+        <h3>volume_24h:  <%= cryptoData.volume_24h %></h3>
+        <h3>last_trade_price:  $<%= cryptoData.last_trade_price %></h3>
+        <h4> * this data obtained from the blockchain.com API</h4>
+      <% } %>
+
+    </section>
+  </div>
+
+</body>
+
+</html>
